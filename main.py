@@ -26,14 +26,14 @@ def readIPAddr():
     inputdir = "input"
     inputfile = "IPADDR"
     inputfilepath = os.path.join(inputdir, inputfile)
-    print inputfilepath
+
     with open(inputfilepath) as f:
         content = f.read().splitlines()
     IPArray = []
     for value in content:
         if validateIPAddr(value) == 0:
             IPArray.append(value)
-    print IPArray
+
     return IPArray
 
 
@@ -43,7 +43,6 @@ def getwhoisdict(IPAddr):
     '''
     getting whois Dict
     '''
-    print type(IPAddr)
     obj = ipwhois.IPWhois(IPAddr)
     res = obj.lookup_rdap(asn_methods=["whois"])
     return res
@@ -59,26 +58,19 @@ def writetocsv(mydictlist, headers):
         writer = csv.DictWriter(csv_file, fieldnames=headers)
         writer.writeheader()
         for mydict in mydictlist:
-            print mydict
             writer.writerow(mydict)
     csv_file.close()
 
 
-# print getwhoisdict('1.210.22.66')
-mynewdictlist = [{'a':1, 'b':"mystring"}, {'a':7, 'b':"mynewstring"}, {'a':7667, 'b':"mystring12344"}]
-#headers = ['a', 'b']
-#print writetocsv(mynewdictlist, headers)
 
-import pprint
-#pp = pprint.PrettyPrinter(indent=4)
-#pp.pprint(getwhoisdict('1.1.1.1'))
+def dictparser(IPDict):
+    pass
 
 
 def main():
     IPAddrList = readIPAddr()
     IPAddrDictList = []
     for IPAddr in IPAddrList:
-        print IPAddr
         whoisinfodict = getwhoisdict(IPAddr)
         IPAddrDictList.append(whoisinfodict)
 
@@ -89,4 +81,6 @@ def main():
 
 
 
+if __name__ == "__main__":
+    main()
 
