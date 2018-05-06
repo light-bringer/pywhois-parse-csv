@@ -25,4 +25,4 @@ $ python main.py
   
 Your values will be populated into CSV files with the run timestamp under the ``output/`` folder.
 
-ENjoy! :poop:
+ENjoy! :smile:
