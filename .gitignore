@@ -4,4 +4,4 @@ lib/
 local/
 pip-selfcheck.json
 *.pyc
-
+output/*.csv
