@@ -1,3 +1,4 @@
 dnspython==1.15.0
 ipaddr==2.2.0
+ipaddress==1.0.22
 ipwhois==1.0.0
